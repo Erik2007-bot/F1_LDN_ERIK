@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>F1 Erik - Página LDN Proyecto</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header id="site-header" class="site-header">
+    <div class="logo">
+      <i class="fa fa-flag-checkered"></i>
+      <h1>F1 by Erik</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Inicio</a>
+      <a href="#teams">Escuderías</a>
+      <a href="#gallery">Pilotos</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <button id="menu-toggle" class="menu-toggle"><i class="fa fa-bars"></i></button>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <h2>Página de f1 de Erik</h2>
+      <p>Actualidad de la F1</p>
+      <button class="btn-primary" id="learn-more-btn">Ver más</button>
+    </section>
+
+    <!-- Para la segunda entrega AÑADIR DEBAJO DEL PILOTO EL NÚMERO DE PUNTOS Y ACTUALIZARLO -->
+    <section id="teams" class="teams-section">
+      <h2>Mundial de constructores</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="img/McLaren_Racing_logo.svg.png" alt="Mclaren">
+        </div>
+        <div class="team-card">
+          <img src="/img/Mercedes-F1-Logo-1-removebg-preview.png" alt="Mercedes">
+        </div>
+        <div class="team-card">
+          <img
+            src="img/png-clipart-scuderia-ferrari-ferrari-s-p-a-car-スクーデリア-formula-1-car-emblem-logo-thumbnail-removebg-preview.png"
+            alt="Ferrari">
+        </div>
+      </div>
+    </section>
+
+    <!-- Foto pilotos líderes del mundial, Norris, Piastri, Verstappen y Russel -->
+    <section id="gallery" class="gallery-section">
+      <h2>Mundial de Pilotos</h2>
+      <div class="gallery-grid">
+        <img
+          src="img/lando_norris_mclaren_f1_team_formula_1_great_brita_by_uniqrenders_djj3dqj-fullview-removebg-preview.png"
+          alt="Lando Norris">
+        <img src="img/piastri-removebg-preview.png" alt="Oscar Piastri">
+        <img src="img/Max_Verstappen-removebg-preview.png" alt="Max Verstappen">
+        <img src="img/a41df084905c61b13c844e92496f7b6e-removebg-preview.png" alt="George Russel">
+      </div>
+    </section>
+
+<!-- Sección de contacto REVISAR PARA LA 2 ENTREGA -->
+    <section id="contact" class="contact-section">
+      <h2>Contacto</h2>
+      <p>Escribe tu nombre y dejanos tus sugerencias</p>
+      <div class="contact-form">
+        <input id="name-input" placeholder="Tu nombre">
+        <button id="send-btn" class="btn-primary">Enviar</button>
+      </div>
+      <p id="response-msg"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>F1 by Erik - Proyecto educativo IES El Rincón</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
