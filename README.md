@@ -20,7 +20,7 @@ Since this is a front-end project built with standard web technologies, you only
 A step-by-step series of examples that tell you how to get a development environment running.
 
 1.  **Clone the Repository**
-    Open your terminal or command prompt and clone the project files:
+    Open your terminal or command prompt and clone the project files:https://github.com/Erik2007-bot/F1_LDN_ERIK
     ```bash
     git clone 
 
