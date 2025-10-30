@@ -81,12 +81,6 @@ We use **SemVer** for versioning. For all available versions, see the tags on th
 
 * **Erik Nicolás García Reyes** - *Initial Work & Development*
 
-You can also see the list of all [contributors](https://github.com/your-username/f1-erik/graphs/contributors) who have participated in this project (Once you push it to GitHub).
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the `LICENSE.md` file for details. *(Note: You should create a LICENSE.md file with the MIT text.)*
-
 ## 🎉 Expressions of Gratitude
 
 * Thanks to **Professor Tiburcio Cruz** (LDN Teacher) for guidance and support.
