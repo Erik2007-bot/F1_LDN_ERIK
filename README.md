@@ -22,8 +22,8 @@ A step-by-step series of examples that tell you how to get a development environ
 1.  **Clone the Repository**
     Open your terminal or command prompt and clone the project files:
     ```bash
-    git clone [https://github.com/your-username/f1-erik.git](https://github.com/your-username/f1-erik.git)
-    # Be sure to replace 'your-username/f1-erik.git' with your actual repository URL.
+    git clone 
+
     ```
 2.  **Navigate to the Directory**
     Change your current directory to the project folder:
