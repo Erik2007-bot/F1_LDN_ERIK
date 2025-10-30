@@ -22,7 +22,7 @@ A step-by-step series of examples that tell you how to get a development environ
 1.  **Clone the Repository**
     Open your terminal or command prompt and clone the project files:https://github.com/Erik2007-bot/F1_LDN_ERIK
     ```bash
-    git clone 
+    git clone https://github.com/Erik2007-bot/F1_LDN_ERIK
 
     ```
 2.  **Navigate to the Directory**
