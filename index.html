@@ -36,16 +36,21 @@
       <h2>Mundial de constructores</h2>
       <div class="team-grid">
         <div class="team-card">
-          <img src="img/McLaren_Racing_logo.svg.png" alt="Mclaren">
+          <img src="img/mclaren-logo.png" alt="Mclaren">
         </div>
         <div class="team-card">
-          <img src="/img/Mercedes-F1-Logo-1-removebg-preview.png" alt="Mercedes">
+          <img src="img/mercedes-logo.png" alt="Mercedes">
         </div>
         <div class="team-card">
-          <img
-            src="img/png-clipart-scuderia-ferrari-ferrari-s-p-a-car-スクーデリア-formula-1-car-emblem-logo-thumbnail-removebg-preview.png"
-            alt="Ferrari">
+          <img src="img/ferrari-logo.png" alt="Ferrari">
         </div>
+        <div class="team-card">
+          <img src="img/red-bull.png" alt="Red Bull">
+        </div>
+        <div class="team-card">
+          <img src="img/williams-logo.png" alt="Williams">
+        </div>
+
       </div>
     </section>
 
@@ -53,29 +58,65 @@
     <section id="gallery" class="gallery-section">
       <h2>Mundial de Pilotos</h2>
       <div class="gallery-grid">
-        <img
-          src="img/lando_norris_mclaren_f1_team_formula_1_great_brita_by_uniqrenders_djj3dqj-fullview-removebg-preview.png"
-          alt="Lando Norris">
-        <img src="img/piastri-removebg-preview.png" alt="Oscar Piastri">
-        <img src="img/Max_Verstappen-removebg-preview.png" alt="Max Verstappen">
-        <img src="img/a41df084905c61b13c844e92496f7b6e-removebg-preview.png" alt="George Russel">
+        <img src="img/lando-norris.png" alt="Lando Norris">
+        <img src="img/oscar-piastri.png" alt="Oscar Piastri">
+        <img src="img/max-verstappen.png" alt="Max Verstappen">
+        <img src="img/george-rusell.png" alt="George Russel">
+        <img src="img/charles-leclerc.png" alt="Charles Leclerc">
       </div>
     </section>
 
-<!-- Sección de contacto REVISAR PARA LA 2 ENTREGA -->
+    <!--formulario -->
     <section id="contact" class="contact-section">
-      <h2>Contacto</h2>
-      <p>Escribe tu nombre y dejanos tus sugerencias</p>
+      <h2>Formulario</h2>
+      <p>Responde estas preguntas por favor</p>
       <div class="contact-form">
-        <input id="name-input" placeholder="Tu nombre">
+        <input id="name-input" placeholder="Piloto Favorito">
+        <input id="team-input" placeholder="Escudería Favorita">
+        <input id="age-input" placeholder="Edad">
+        <textarea id="opinion-input" placeholder="¿Por qué te gusta la F1?" rows="3"></textarea>
+
         <button id="send-btn" class="btn-primary">Enviar</button>
       </div>
       <p id="response-msg"></p>
+      
+      <h3>Lista de Opiniones</h3>
+      <ul id="opinions-list" class="opinions-list"></ul>
+
     </section>
+    
   </main>
 
   <footer class="site-footer">
-    <p>F1 by Erik - Proyecto educativo IES El Rincón</p>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>F1 by Erik</h3>
+        <p>Proyecto educativo IES El Rincón</p>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Enlaces</h4>
+        <a href="#">Inicio</a>
+        <a href="#">Noticias</a>
+        <a href="#">Galería</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Email: erikgarciareyes8@gmail.com</p>
+        <p>Tel: +34 111111111</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <a href="" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 F1 by Erik. Todos los derechos reservados.</p>
   </footer>
 
   <script src="js/main.js"></script>
