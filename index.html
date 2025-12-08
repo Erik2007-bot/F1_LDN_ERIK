@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>F1 Erik - Página LDN Proyecto</title>
+  <title> F1 Erik - Página LDN Proyecto</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -21,17 +21,16 @@
       <a href="#gallery">Pilotos</a>
       <a href="#contact">Contacto</a>
     </nav>
-    <button id="menu-toggle" class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <button type="button" id="menu-toggle" class="menu-toggle"><i class="fa fa-bars"></i></button>
   </header>
 
   <main>
     <section id="home" class="hero-section">
       <h2>Página de f1 de Erik</h2>
       <p>Actualidad de la F1</p>
-      <button class="btn-primary" id="learn-more-btn">Ver más</button>
+      <button type="button" class="btn-primary" id="learn-more-btn">Ver más</button>
     </section>
 
-    <!-- Para la segunda entrega AÑADIR DEBAJO DEL PILOTO EL NÚMERO DE PUNTOS Y ACTUALIZARLO -->
     <section id="teams" class="teams-section">
       <h2>Mundial de constructores</h2>
       <div class="team-grid">
@@ -54,7 +53,6 @@
       </div>
     </section>
 
-    <!-- Foto pilotos líderes del mundial, Norris, Piastri, Verstappen y Russel -->
     <section id="gallery" class="gallery-section">
       <h2>Mundial de Pilotos</h2>
       <div class="gallery-grid">
@@ -66,25 +64,45 @@
       </div>
     </section>
 
-    <!--formulario -->
     <section id="contact" class="contact-section">
       <h2>Formulario</h2>
       <p>Responde estas preguntas por favor</p>
       <div class="contact-form">
-        <input id="name-input" placeholder="Piloto Favorito">
-        <input id="team-input" placeholder="Escudería Favorita">
-        <input id="age-input" placeholder="Edad">
-        <textarea id="opinion-input" placeholder="¿Por qué te gusta la F1?" rows="3"></textarea>
 
-        <button id="send-btn" class="btn-primary">Enviar</button>
+        <div class="form-group">
+          <label for="name-input">Piloto Favorito</label>
+          <input type="text" id="name-input" placeholder="Piloto Favorito" aria-label="Piloto Favorito">
+          <span class="error-msg" id="name-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="team-input">Escudería Favorita</label>
+          <input type="text" id="team-input" placeholder="Escudería Favorita" aria-label="Escudería Favorita">
+          <span class="error-msg" id="team-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="age-input">Edad</label>
+          <input type="number" id="age-input" placeholder="Edad" aria-label="Edad">
+          <span class="error-msg" id="age-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="opinion-input">Opinión sobre la F1</label>
+          <textarea id="opinion-input" placeholder="¿Por qué te gusta la F1?"
+            aria-label="Opinión sobre la F1"></textarea>
+          <span class="error-msg" id="opinion-error"></span>
+        </div>
+
+        <button type="button" id="send-btn" class="btn-primary">Enviar</button>
+
       </div>
-      <p id="response-msg"></p>
-      
+
       <h3>Lista de Opiniones</h3>
       <ul id="opinions-list" class="opinions-list"></ul>
-
     </section>
-    
+
+
   </main>
 
   <footer class="site-footer">
