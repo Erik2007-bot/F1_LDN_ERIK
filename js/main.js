@@ -1,110 +1,152 @@
-// Sirve para que se pueda interactuar con la hamburguesa cuando se ponga el formato de un móvil
+// --- Menú hamburguesa ---
 const MENU_TOGGLE = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-
-
-
-// Para abrir o cerrar la hamburguesa
 MENU_TOGGLE.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  navLinks.classList.toggle('active');
 });
 
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
 
+document.addEventListener('click', (event) => {
+  const isClickInside = navLinks.contains(event.target) || MENU_TOGGLE.contains(event.target);
+  if (!isClickInside && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+  }
+});
 
-// esto es para el boton de "ver más" bajé de una manera más suave y no baje directamente
+// --- Scroll suave "Ver más" ---
 document.getElementById('learn-more-btn').addEventListener('click', () => {
   document.getElementById('teams').scrollIntoView({ behavior: 'smooth' });
 });
 
-
-
+// --- Opiniones ---
 const listContainer = document.getElementById("opinions-list");
-
-
-const sendBtn = document.getElementById("send-btn");
+const SEND_BTN = document.getElementById("send-btn");
 const responseMsg = document.getElementById("response-msg");
 
+const nameInput = document.getElementById("name-input");
+const teamInput = document.getElementById("team-input");
+const ageInput = document.getElementById("age-input");
+const opinionInput = document.getElementById("opinion-input");
 
+const nameError = document.getElementById("name-error");
+const teamError = document.getElementById("team-error");
+const ageError = document.getElementById("age-error");
+const opinionError = document.getElementById("opinion-error");
 
+let editIndex = -1; // -1 significa que no estamos editando
+
+// --- Cargar opiniones ---
 function loadOpinions() {
   const data = JSON.parse(localStorage.getItem("opinions")) || [];
-  listContainer.innerHTML = ""; 
+  listContainer.innerHTML = "";
 
   data.forEach((item, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <strong>Piloto:</strong> ${item.piloto}<br>
-      <strong>Escudería:</strong> ${item.escuderia}<br>
-      <strong>Edad:</strong> ${item.edad}<br>
-      <strong>Opinión:</strong> ${item.opinion}
+      <strong>Piloto:</strong> ${item.driver}<br>
+      <strong>Escudería:</strong> ${item.team}<br>
+      <strong>Edad:</strong> ${item.age}<br>
+      <strong>Opinión:</strong> ${item.opinion}<br>
+      <button onclick="deleteOpinion(${index})" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; margin-top: 5px; cursor: pointer;">Eliminar</button>
+      <button onclick="editOpinion(${index})" style="background-color: #4CAF50; color: white; border: none; padding: 5px 10px; margin-top: 5px; cursor: pointer;">Editar</button>
     `;
     listContainer.appendChild(li);
   });
 }
 
-//  es la función para guardar la nueva función
-function saveOpinion(piloto, escuderia, edad, opinion) {
+// --- Eliminar opinión ---
+window.deleteOpinion = function (index) {
+  const data = JSON.parse(localStorage.getItem("opinions")) || [];
+  data.splice(index, 1);
+  localStorage.setItem("opinions", JSON.stringify(data));
+  loadOpinions();
+};
+
+// --- Editar opinión ---
+window.editOpinion = function (index) {
+  const data = JSON.parse(localStorage.getItem("opinions")) || [];
+  const item = data[index];
+
+  nameInput.value = item.driver;
+  teamInput.value = item.team;
+  ageInput.value = item.age;
+  opinionInput.value = item.opinion;
+
+  editIndex = index;
+  SEND_BTN.textContent = "Actualizar";
+};
+
+// --- Guardar opinión ---
+function saveOpinion(driver, team, age, opinion) {
   const data = JSON.parse(localStorage.getItem("opinions")) || [];
 
-  const newOpinion = {
-    piloto: piloto,
-    escuderia: escuderia,
-    edad: edad,
-    opinion: opinion
-  };
+  if (editIndex === -1) {
+    // Crear nueva opinión
+    data.push({ driver, team, age, opinion });
+  } else {
+    // Actualizar existente
+    data[editIndex] = { driver, team, age, opinion };
+    editIndex = -1;
+    SEND_BTN.textContent = "Enviar";
+  }
 
-  data.push(newOpinion); // añadir a array
-  localStorage.setItem("opinions", JSON.stringify(data)); // guardar JSON real
+  localStorage.setItem("opinions", JSON.stringify(data));
 }
 
-// EVENTO DEL BOTÓN — AÑADE Y MUESTRA
-sendBtn.addEventListener("click", () => {
-  const name = document.getElementById("name-input").value.trim();
-  const team = document.getElementById("team-input").value.trim();
-  const age = document.getElementById("age-input").value.trim();
-  const opinion = document.getElementById("opinion-input").value.trim();
+// --- Evento botón enviar ---
+SEND_BTN.addEventListener("click", () => {
+  // Reset errores
+  nameError.textContent = "";
+  teamError.textContent = "";
+  ageError.textContent = "";
+  opinionError.textContent = "";
 
-  // Validación
+  const name = nameInput.value.trim();
+  const team = teamInput.value.trim();
+  const age = ageInput.value.trim();
+  const opinion = opinionInput.value.trim();
+
+  let valid = true;
+
   if (name === "") {
-    responseMsg.textContent = "Debes escribir un piloto.";
-    responseMsg.style.color = "red";
-    return;
+    nameError.textContent = "Debes escribir un piloto.";
+    valid = false;
   }
   if (team === "") {
-    responseMsg.textContent = "Debes escribir una escudería.";
-    responseMsg.style.color = "red";
-    return;
+    teamError.textContent = "Debes escribir una escudería.";
+    valid = false;
   }
   if (age === "" || isNaN(age) || age <= 0) {
-    responseMsg.textContent = "La edad debe ser un número válido.";
-    responseMsg.style.color = "red";
-    return;
+    ageError.textContent = "La edad debe ser un número válido.";
+    valid = false;
   }
   if (opinion.length < 10) {
-    responseMsg.textContent = "Mínimo 10 caracteres).";
-    responseMsg.style.color = "red";
-    return;
+    opinionError.textContent = "Mínimo 10 caracteres.";
+    valid = false;
   }
 
-  // esta guarda la opinion
-  saveOpinion(name, team, age, opinion);
+  if (!valid) return;
 
-  // con esto hacemos la recarga
+  saveOpinion(name, team, age, opinion);
   loadOpinions();
 
-  responseMsg.textContent = "Opinión añadida correctamente.";
-  responseMsg.style.color = "green";
-
-  // Limpiamos el form
-  document.getElementById("name-input").value = "";
-  document.getElementById("team-input").value = "";
-  document.getElementById("age-input").value = "";
-  document.getElementById("opinion-input").value = "";
+  // Limpiar formulario
+  nameInput.value = "";
+  teamInput.value = "";
+  ageInput.value = "";
+  opinionInput.value = "";
+  SEND_BTN.textContent = "Enviar";
 });
 
-// Mostrar datos al cargar la web
+// --- Cargar opiniones al iniciar ---
 loadOpinions();
+
 
 
 
